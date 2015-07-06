@@ -7,10 +7,22 @@
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage: createjs.Stage;
+var assets: createjs.LoadQueue; //container for all assets
 
 //Game Variables
 var helloLabel: createjs.Text; //create a reference
+var pinkButton: createjs.Bitmap;
 
+function preload() {
+    assets = new createjs.LoadQueue();
+    assets.installPlugin(createjs.Sound);
+    assets.on("complete", init, this);
+    assets.loadManifest([
+        { id: "pinkButton", src: "assets/images/pinkButton.png" },
+         { id: "clicked", src: "assets/sounds/clicked.wav" }
+
+    ]);
+}
 //Game Functions
 function init() {
     stage = new createjs.Stage(canvas);
@@ -25,14 +37,34 @@ function init() {
 function gameLoop() {
     stage.update();
 }
+function pinkButtonClicked(event: createjs.MouseEvent) {
+    createjs.Sound.play("clicked");
+}
+function pinkButtonOver(event: createjs.MouseEvent) {
+    pinkButton.alpha = 0.8;
+}
+function pinkButtonOut(event: createjs.MouseEvent) {
+    pinkButton.alpha = 1.0;
+}
 
+//Our Main Game Function
 function main() {
     console.log("Game is Running!! ");
     helloLabel = new createjs.Text("Hello World! ", "40px Times New Roman", "#000000");
     helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5; //registration point(regX and regY)
     helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
     helloLabel.x = 160;
-    helloLabel.y = 240;
+    helloLabel.y = 210;
     stage.addChild(helloLabel);
+    pinkButton = new createjs.Bitmap(assets.getResult("pinkButton"));
+    pinkButton.regX = pinkButton.getBounds().width * 0.5; //width of the get bounds (bounds of the objects and the width of the getbounds object) (0.5 bcoz of half the width)
+    pinkButton.regY = pinkButton.getBounds().height * 0.5;
+    pinkButton.x = 160;
+    pinkButton.y = 270;
+    stage.addChild(pinkButton); //add pikButton to the stage
+    pinkButton.on("click", pinkButtonClicked);
+    pinkButton.on("mouseover", pinkButtonOver);
+    pinkButton.on("mouseout", pinkButtonOut);
+   
 
 }
