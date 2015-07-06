@@ -75,6 +75,7 @@
     <Content Include="Scripts\lib\easeljs-0.8.1.min.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.1.min.js" />
     <Content Include="Scripts\lib\soundjs-0.6.1.min.js" />
+    <Content Include="Scripts\lib\Stats.js" />
     <Content Include="Scripts\lib\tweenjs-0.6.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -90,6 +91,7 @@
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\stats\stats.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
   </ItemGroup>
   <PropertyGroup>
