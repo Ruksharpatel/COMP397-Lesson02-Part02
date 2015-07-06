@@ -68,6 +68,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\pinkButton.png" />
     <Content Include="css\main.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.1.min.js" />
@@ -81,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\fonts\" />
-    <Folder Include="assets\images\" />
     <Folder Include="assets\sounds\" />
   </ItemGroup>
   <ItemGroup>

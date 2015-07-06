@@ -22,7 +22,7 @@ function gameLoop() {
 function main() {
     console.log("Game is Running!! ");
     helloLabel = new createjs.Text("Hello World! ", "40px Times New Roman", "#000000");
-    helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5; //registration point
+    helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5; //registration point(regX and regY)
     helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
     helloLabel.x = 160;
     helloLabel.y = 240;
